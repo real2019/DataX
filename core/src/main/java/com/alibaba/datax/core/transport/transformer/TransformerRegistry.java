@@ -5,6 +5,8 @@ import com.alibaba.datax.common.util.Configuration;
 import com.alibaba.datax.core.util.container.CoreConstant;
 import com.alibaba.datax.core.util.container.JarLoader;
 import com.alibaba.datax.transformer.ComplexTransformer;
+import com.alibaba.datax.transformer.FloorTransformer;
+import com.alibaba.datax.transformer.*;
 import com.alibaba.datax.transformer.Transformer;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -37,6 +39,12 @@ public class TransformerRegistry {
         registTransformer(new FilterTransformer());
         registTransformer(new GroovyTransformer());
         registTransformer(new DigestTransformer());
+        registTransformer(new MaskTransformer());
+        registTransformer(new FloorTransformer());
+        registTransformer(new HidingTransformer());
+        registTransformer(new MD5Transformer());
+        registTransformer(new PrefixPreserveTransformer());
+        registTransformer(new EnumerateTransformer());
     }
 
     public static void loadTransformerFromLocalStorage() {
